@@ -1,0 +1,1 @@
+XeradorCodigoQR_Blazor
