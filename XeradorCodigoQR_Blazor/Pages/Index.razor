@@ -1,0 +1,46 @@
+﻿@page "/"
+@using Syncfusion.Blazor.BarcodeGenerator
+
+<PageTitle>Xenerador codigo QR</PageTitle>
+
+<EditForm Model="@ModeloDatos">
+    <div class="row">
+        <div class="col-10">
+            <div class="form-group">
+                <label>Agrega texto para xerar un codigo QR</label>
+                <input type="text" @bind-value="ModeloDatos.QREntrada" />
+            </div>
+        </div>
+        <div class="col-10">
+            <button class="btn btn-primary" @onclick="XenerarClick">Xenerar codigo QR</button>
+        </div>
+
+        <div class="col-10">
+        </div>
+    </div>
+</EditForm>
+
+<br />
+<br />
+<hr />
+
+@if(ModeloDatos.QREntrada !=null && ModeloDatos.QREntrada.Trim() != "")
+{
+    <SfQRCodeGenerator Width="200px" Height="150px" BackgroundColor="Green" ForeColor="Blue" Value="@ModeloDatos.QREntrada"></SfQRCodeGenerator>
+}
+
+
+
+@code {
+    public CodigoQrModeloDatos ModeloDatos = new();
+
+    public class CodigoQrModeloDatos
+    {
+        public string QREntrada { get; set; }
+    }
+
+    protected void XenerarClick()
+    {
+
+    }
+}
